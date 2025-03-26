@@ -23,7 +23,7 @@
         android:layout_marginBottom="8dp"/>
 
     <EditText
-        android:id="@+id/tv_nuevoNombre"
+        android:id="@+id/et_nuevoNombre"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@android:color/white"
@@ -39,6 +39,7 @@
         android:layout_marginBottom="8dp"/>
 
     <EditText
+        android:id="@+id/et_nuevoApellido"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@android:color/white"
@@ -54,6 +55,7 @@
         android:layout_marginBottom="8dp"/>
 
     <EditText
+        android:id="@+id/et_nuevoTelefono"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@android:color/white"
@@ -69,6 +71,7 @@
         android:layout_marginBottom="8dp"/>
 
     <EditText
+        android:id="@+id/et_nuevoEmail"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@android:color/white"
@@ -77,7 +80,24 @@
         android:inputType="textEmailAddress"
         android:layout_marginBottom="32dp"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Compania"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/et_nuevaCompania"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/white"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:inputType="text"
+        android:layout_marginBottom="32dp"/>
+
     <Button
+        android:id="@+id/btn_guardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Guardar"

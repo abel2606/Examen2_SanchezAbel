@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -18,7 +19,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-    var contactos = ArrayList<Contacto>()
+    companion object {
+        var contactos = ArrayList<Contacto>()
+    }
     var adapter: ContactoAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +35,20 @@ class MainActivity : AppCompatActivity() {
         construirContactos()
 
         var listView: ListView = findViewById(R.id.lv_contactos)
-
         adapter = ContactoAdapter(this, contactos)
-
         listView.adapter = adapter
 
+        val btnAgregarContacto: Button = findViewById(R.id.btn_agregarContacto)
+        btnAgregarContacto.setOnClickListener {
+            val intent = Intent(this, NuevoContacto::class.java)
+            startActivity(intent)
+        }
+
+    }
+    
+    override fun onResume() {
+        super.onResume()
+        adapter?.notifyDataSetChanged()
     }
 
 

@@ -24,6 +24,7 @@
             android:textStyle="bold"/>
 
         <Button
+            android:id="@+id/btn_agregarContacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Agregar contacto"
