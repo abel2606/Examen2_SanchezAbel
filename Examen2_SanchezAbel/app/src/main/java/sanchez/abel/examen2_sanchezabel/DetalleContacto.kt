@@ -1,5 +1,6 @@
 package sanchez.abel.examen2_sanchezabel
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -35,5 +36,13 @@ class DetalleContacto : AppCompatActivity() {
             telefono.setText(bundle.getString("telefono"))
             btnLlamar.setText("Llamar a "+bundle.getString("nombre"))
         }
+
+        btnLlamar.setOnClickListener{
+            val intent = Intent(this, Llamar::class.java)
+            intent.putExtra("nombre", bundle?.getString("nombre")+" "+bundle?.getString("apellido"))
+            intent.putExtra("telefono", bundle?.getString("telefono"))
+            startActivity(intent)
+        }
+
     }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.GridView
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ListView
@@ -21,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
     companion object {
         var contactos = ArrayList<Contacto>()
+        var contactosAgregados: Boolean = false
     }
     var adapter: ContactoAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +34,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        construirContactos()
-
+        if(!contactosAgregados){
+            construirContactos()
+            contactosAgregados = true
+        }
         var listView: ListView = findViewById(R.id.lv_contactos)
         adapter = ContactoAdapter(this, contactos)
         listView.adapter = adapter
@@ -44,8 +48,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+
     }
-    
+
     override fun onResume() {
         super.onResume()
         adapter?.notifyDataSetChanged()
@@ -53,11 +59,17 @@ class MainActivity : AppCompatActivity() {
 
 
     fun construirContactos() {
-        contactos.add(Contacto("Juan", "Pérez", "juan.perez@gmail.com", "555-123-4567","#FFFFF","Ley"))
-        contactos.add(Contacto("Ana López","López", "ana.lopez@hotmail.com", "555-987-6543","#FFFFF","Ley"))
-        contactos.add(Contacto("Carlos Ramírez", "Ramírez", "carlos.ramirez@yahoo.com", "555-222-3333","#FFFFF","Ley"))
-        contactos.add(Contacto("Laura Gómez", "Gómez", "laura.gomez@outlook.com", "555-444-5555","#FFFFF","Ley"))
+        contactos.add(Contacto("Juan", "Pérez", "seMeAcabaElTiempo.perez@gmail.com", "555-123-4567", "#FF5733", "Ley"))
+        contactos.add(Contacto("Ana", "López", "no.me.da.tiempo.para.diseño.help@hotmail.com", "555-987-6543", "#33FF57", "Walmart"))
+        contactos.add(Contacto("Carlos", "Ramírez", "carlos.ramirez@yahoo.com", "555-222-3333", "#3357FF", "Secretario de IMSS"))
+        contactos.add(Contacto("Laura", "Gómez", "laura.gomez@outlook.com", "555-444-5555", "#F1C40F", "Sargento de militar"))
+        contactos.add(Contacto("Luis", "Martínez", "ayudaaaaa@gmail.com", "555-555-1234", "#9B59B6", "Escritor"))
+        contactos.add(Contacto("Sofíaaaa", "Hernández", "sofia.hernandez@gmail.com", "555-876-5432", "#E74C3C", "Me cae mal"))
+        contactos.add(Contacto("Pedro", "Díaz", "pedro.diaz@yahoo.com", "555-111-2222", "#8E44AD", "Música"))
+        contactos.add(Contacto("Marta", "Vega", "marta.vega@hotmail.com", "555-333-4444", "#2ECC71", "Deportes"))
+
     }
+
 }
 
 
@@ -78,7 +90,7 @@ class ContactoAdapter: BaseAdapter {
         var nombre: TextView = vista.findViewById(R.id.tv_nombreContacto)  as TextView
         var compania: TextView = vista.findViewById(R.id.tv_nombreCompania)  as TextView
         var contenedor: LinearLayout = vista.findViewById(R.id.ll_contenedorContacto)  as LinearLayout
-
+        var eliminar: ImageButton = vista.findViewById(R.id.ib_eliminar)  as ImageButton
 
         nombre.setText(contacto.nombre)
         compania.setText(contacto.apellido)
@@ -93,6 +105,11 @@ class ContactoAdapter: BaseAdapter {
             intent.putExtra("color", contacto.color)
 
             context!!.startActivity(intent)
+        }
+
+        eliminar.setOnClickListener{
+            contactos.removeAt(position)
+            notifyDataSetChanged()
         }
 
         return vista
