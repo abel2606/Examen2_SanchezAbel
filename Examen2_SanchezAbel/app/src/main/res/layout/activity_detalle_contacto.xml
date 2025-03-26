@@ -4,45 +4,48 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".DetalleContacto">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:background="@android:color/white"
-            android:layout_marginBottom="1dp">
+    <TextView
+        android:id="@+id/tv_nombreDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lucía Peña"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_companiaDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Secretaria de Salud Pública"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
 
-                <TextView
-                    android:id="@+id/tv_nombreContacto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lucia Peña"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tv_correoDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lucia.peña@mail.com"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"/>
 
-                <TextView
-                    android:id="@+id/tv_nombreCompania"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Secretaria de Salud Publica"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
-            </LinearLayout>
+    <TextView
+        android:id="@+id/tv_telefonoDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(644) 555 5555"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
 
-            <ImageButton
-                android:id="@+id/ib_eliminar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_delete"
-                android:backgroundTint="@color/white"/>
-        </LinearLayout>
+    <Button
+        android:id="@+id/btn_llamar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Llamar a Lucía"
+        android:layout_marginTop="12dp"/>
 
 </LinearLayout>
