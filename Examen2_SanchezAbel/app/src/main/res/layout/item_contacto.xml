@@ -15,12 +15,21 @@
         android:background="@android:color/white"
         android:layout_marginBottom="1dp">
 
+        <ImageView
+            android:id="@+id/iv_circuloContacto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/item_circulo_color"
+            android:layout_marginRight="10dp"/>
         <LinearLayout
             android:id="@+id/ll_contenedorContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/tv_nombreContacto"

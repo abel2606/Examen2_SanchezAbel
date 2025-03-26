@@ -2,6 +2,7 @@ package sanchez.abel.examen2_sanchezabel
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -91,9 +92,13 @@ class ContactoAdapter: BaseAdapter {
         var compania: TextView = vista.findViewById(R.id.tv_nombreCompania)  as TextView
         var contenedor: LinearLayout = vista.findViewById(R.id.ll_contenedorContacto)  as LinearLayout
         var eliminar: ImageButton = vista.findViewById(R.id.ib_eliminar)  as ImageButton
+        var imageview: ImageView = vista.findViewById(R.id.iv_circuloContacto)  as ImageView
 
         nombre.setText(contacto.nombre)
         compania.setText(contacto.apellido)
+
+        val color = Color.parseColor(contacto.color)
+        imageview.setBackgroundColor(color);
 
         contenedor.setOnClickListener{
             var intent: Intent = Intent(context, DetalleContacto::class.java)
