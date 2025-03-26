@@ -100,6 +100,7 @@ class ContactoAdapter: BaseAdapter {
         val color = Color.parseColor(contacto.color)
         imageview.setBackgroundColor(color);
 
+
         contenedor.setOnClickListener{
             var intent: Intent = Intent(context, DetalleContacto::class.java)
             intent.putExtra("nombre", contacto.nombre)
