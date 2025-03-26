@@ -25,7 +25,7 @@ class NuevoContacto : AppCompatActivity() {
             val apellido = findViewById<EditText>(R.id.et_nuevoApellido).text.toString()
             val email = findViewById<EditText>(R.id.et_nuevoEmail).text.toString()
             val telefono = findViewById<EditText>(R.id.et_nuevoTelefono).text.toString()
-            val color = "#FFFFFF"
+            val color = generarColorAleatorio()
             val compania = findViewById<EditText>(R.id.et_nuevaCompania).text.toString()
 
             val nuevoContacto = Contacto(nombre, apellido, email, telefono, color, compania)
@@ -33,5 +33,16 @@ class NuevoContacto : AppCompatActivity() {
 
             finish()
         }
+
     }
+
+    fun generarColorAleatorio(): String {
+        val random = (0..255)
+        val r = random.random()
+        val g = random.random()
+        val b = random.random()
+
+        return String.format("#%02X%02X%02X", r, g, b)
+    }
+
 }
